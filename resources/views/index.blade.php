@@ -2,22 +2,22 @@
     <!-- Navbar -->
     <header class="bg-white shadow">
         <div class="container mx-auto flex justify-between items-center p-4">
-            <h1 class="text-2xl font-bold text-indigo-600">Duta Madinna Kubah</h1>
+            <h1 class="text-2xl font-bold text-blue-600">Duta Madinna Kubah</h1>
             <nav class="space-x-6">
-                <a href="#about" class="hover:text-indigo-600">About</a>
-                <a href="#services" class="hover:text-indigo-600">Services</a>
-                <a href="#contact" class="hover:text-indigo-600">Contact</a>
+                <a href="#about" class="hover:text-blue-600">About</a>
+                <a href="#services" class="hover:text-blue-600">Services</a>
+                <a href="#contact" class="hover:text-blue-600">Contact</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero -->
-    <section class="bg-indigo-600 text-white py-20">
+    <section class="bg-blue-600 text-white py-20">
         <div class="container mx-auto text-center px-6">
             <h2 class="text-4xl font-bold mb-4">Kontraktor Kubah Masjid Professional</h2>
             <p class="text-xl mb-6">Melayani pekerjaan di seluruh wilayah Indonesia dari Sabang sampai Meraoke. Dengan
                 didukung workshop kami yang berada di beberapa wilayah Indonesia</p>
-            <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100">
+            <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100">
                 Hubungi Kami
             </a>
         </div>
@@ -67,7 +67,7 @@
         <div class="container mx-auto px-6 max-w-xl">
             <h3 class="text-3xl font-bold text-center mb-10">Hubungi Kami</h3>
             <a href="https://wa.me/6285316979307"
-                class="w-full bg-indigo-600 text-white p-3 rounded font-semibold hover:bg-indigo-700 block text-center">
+                class="w-full bg-blue-600 text-white p-3 rounded font-semibold hover:bg-blue-700 block text-center">
                 Kirim Pesan
             </a>
         </div>
