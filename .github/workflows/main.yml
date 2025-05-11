@@ -20,11 +20,19 @@ jobs:
         run: npm install
       - name: Build Production
         run: npm run build
-      - name: Change directory permissions
-        run: chmod -R 777 storage bootstrap/cache
-      - name: Push to Shared Hosting
+      - name: Push public to Shared Hosting
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./public/build
+          remote-dir: ./build
+      - name: Connect to SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: "cd domains/kubahdutamadinna.com/duta-madinna-kubah && ./.scripts/deploy.sh"
