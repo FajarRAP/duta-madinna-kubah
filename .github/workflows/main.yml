@@ -27,7 +27,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./public/build/
-          remote-dir: build/
       - name: Connect to SSH
         uses: appleboy/ssh-action@v1
         with:
