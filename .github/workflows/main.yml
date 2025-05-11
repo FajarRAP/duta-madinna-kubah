@@ -26,7 +26,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./public/
+          local-dir: ./public/build/
       - name: Connect to SSH
         uses: appleboy/ssh-action@v1
         with:
