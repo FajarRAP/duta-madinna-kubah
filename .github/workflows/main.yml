@@ -1,0 +1,36 @@
+name: Deploy Site
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: Deploy to Shared Hosting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check latest code
+        uses: actions/checkout@v4
+      - name: Setup Node Js
+        uses: actions/setup-node@v4
+      - name: Install Node Js Dependencies
+        run: npm install
+      - name: Build Production
+        run: npm run build
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Install PHP Dependencies
+        run: composer install --no-dev --no-interaction --prefer-dist
+      - name: Generate Laravel Key
+        run: php artisan key:generate
+      - name: Change directory permissions
+        run: chmod -R 775 storage bootstrap/cache
+      - name: Push to Shared Hosting
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
