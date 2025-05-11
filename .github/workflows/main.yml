@@ -20,7 +20,7 @@ jobs:
         run: npm install
       - name: Build Production
         run: npm run build
-      - name: Push public to Shared Hosting
+      - name: Push build to Shared Hosting
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
