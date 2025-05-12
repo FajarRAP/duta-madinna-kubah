@@ -8,6 +8,11 @@
             <x-navbar.nav-link href="#about" title="Tentang" />
             <x-navbar.nav-link href="#services" title="Layanan" />
             <x-navbar.nav-link href="#contact" title="Kontak" />
+            <li>
+                <a href="{{ route('login.get') }}">
+                    <x-primary-button>Login</x-primary-button>
+                </a>
+            </li>
         </x-slot>
     </x-navbar>
 
