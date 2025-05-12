@@ -21,7 +21,7 @@
             </ul>
         </div>
         <div class="hidden md:block w-auto">
-            <ul class="font-medium flex gap-8">
+            <ul class="font-medium flex gap-8 items-center">
                 {{ $navlinks }}
             </ul>
         </div>
