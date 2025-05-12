@@ -1,18 +1,45 @@
 <x-app-layout>
-
     <!-- Navbar -->
-    <x-navbar>
+    <x-navbar :isFixed="true">
         <x-slot name="navlinks">
-            <x-navbar.nav-link href="#home" title="Beranda" class="text-blue-600" />
-            <x-navbar.nav-link href="#information" title="Informasi" />
-            <x-navbar.nav-link href="#about" title="Tentang" />
-            <x-navbar.nav-link href="#services" title="Layanan" />
-            <x-navbar.nav-link href="#contact" title="Kontak" />
             <li>
-                <a href="{{ route('login.get') }}">
-                    <x-primary-button>Login</x-primary-button>
-                </a>
+                <x-navbar.nav-link href="#home" class="text-blue-600">
+                    Beranda
+                </x-navbar.nav-link>
             </li>
+            <li>
+                <x-navbar.nav-link href="#information">
+                    Informasi
+                </x-navbar.nav-link>
+            </li>
+            <li>
+                <x-navbar.nav-link href="#about">
+                    Tentang
+                </x-navbar.nav-link>
+            </li>
+            <li>
+                <x-navbar.nav-link href="#services">
+                    Layanan
+                </x-navbar.nav-link>
+            </li>
+            <li>
+                <x-navbar.nav-link href="#contact">
+                    Kontak
+                </x-navbar.nav-link>
+            </li>
+            @if (auth()->check())
+                <li>
+                    <x-navbar.nav-link href="{{ route('dashboard') }}" class="w-full">
+                        <x-primary-button class="w-full flex justify-center">Dashboard</x-primary-button>
+                    </x-navbar.nav-link>
+                </li>
+            @else
+                <li>
+                    <x-navbar.nav-link href="{{ route('login') }}" class="w-full">
+                        <x-primary-button class="w-full flex justify-center">Login</x-primary-button>
+                    </x-navbar.nav-link>
+                </li>
+            @endif
         </x-slot>
     </x-navbar>
 
