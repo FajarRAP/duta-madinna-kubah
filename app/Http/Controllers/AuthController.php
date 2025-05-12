@@ -8,10 +8,10 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
-    
+
     public function login(Request $request)
     {
-        // Validate the request data
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:6',
@@ -27,7 +27,15 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        // If login fails, redirect back with an error message
         return redirect()->intended(route('dashboard', absolute: false));
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
