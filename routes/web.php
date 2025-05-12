@@ -9,6 +9,10 @@ Route::get('/', function () {
 
 Route::get('/dashboard', fn() => view('dashboard'))
     ->middleware('auth')->name('dashboard');
+Route::get('/dashboard/information', fn() => view('information'))
+    ->middleware('auth')->name('information');
+Route::get('/dashboard/portfolio', fn() => view('portfolio'))
+    ->middleware('auth')->name('portfolio');
 
 Route::get('/auth/login', fn() => view('auth.login'))
     ->name('login');
