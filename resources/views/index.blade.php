@@ -65,29 +65,12 @@
         <div class="container mx-auto px-6">
             <h3 class="text-3xl font-bold text-center mb-10">Informasi Terbaru</h3>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow text-center">
-                    <h4 class="text-xl font-bold mb-2">Judul Informasi 1</h4>
-                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores
-                        cum
-                        placeat, ipsa neque consectetur architecto temporibus voluptatum sed fuga in voluptates
-                        dolore
-                        distinctio atque blanditiis culpa itaque quibusdam debitis.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow text-center">
-                    <h4 class="text-xl font-bold mb-2">Judul Informasi 2</h4>
-                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-                        ratione
-                        numquam doloremque aperiam assumenda eaque rem ut ad et quaerat pariatur, molestias deserunt
-                        qui
-                        tempore dolore fugiat cupiditate sint natus?</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow text-center">
-                    <h4 class="text-xl font-bold mb-2">Judul Informasi 3</h4>
-                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic corporis
-                        quam
-                        ipsa at? Ullam nemo necessitatibus excepturi. Iusto fugiat dolores ducimus sapiente id
-                        perspiciatis reprehenderit voluptate cumque eveniet. Aliquid, iste.</p>
-                </div>
+                @foreach ($information as $info)
+                    <div class="bg-white p-6 rounded-lg shadow text-center flex flex-col justify-between">
+                        <h4 class="text-xl font-bold mb-2">{{ $info->title }}</h4>
+                        <img src="{{ asset("storage/$info->image_path") }}" alt="">
+                    </div>
+                @endforeach
             </div>
         </div>
 
