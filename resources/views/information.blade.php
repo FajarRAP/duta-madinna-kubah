@@ -27,21 +27,44 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
-                                <td class="p-4">
-                                    <img src="/docs/images/products/apple-watch.png"
-                                        class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900">
-                                    Apple Watch
-                                </td>
-                                <td class="px-6 py-4 flex flex-col">
-                                    <a href="#" class="font-medium text-yellow-600 hover:underline" x-data
-                                        x-on:click.prevent="$dispatch('open-modal', 'edit-data')">Sunting</a>
-                                    <a href="#" class="font-medium text-red-600 hover:underline" x-data
-                                        x-on:click.prevent="$dispatch('open-modal', 'delete-data')">Hapus</a>
-                                </td>
-                            </tr>
+                            @foreach ($information as $info)
+                                <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="p-4">
+
+                                        <img src='{{ asset("storage/$info->image_path") }}'
+                                            class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                    </td>
+                                    <td class="px-6 py-4 font-semibold text-gray-900">
+                                        {{ $info->title }}
+                                    </td>
+                                    <td class="px-6 py-4 flex flex-col">
+                                        <a href="#" class="font-medium text-yellow-600 hover:underline" x-data
+                                            x-on:click.prevent="$dispatch('open-modal', 'edit-data')">Sunting</a>
+                                        <a href="#" class="font-medium text-red-600 hover:underline" x-data
+                                            x-on:click.prevent="$dispatch('open-modal', 'delete-data-{{ $info->id }}')">Hapus</a>
+                                    </td>
+                                    <x-modal name="delete-data-{{ $info->id }}">
+                                        <form action="{{ route('information.destroy', $info) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                                <div class="flex flex-col gap-3">
+                                                    <h3 class="text-base font-semibold text-gray-900">
+                                                        Hapus Informasi
+                                                    </h3>
+                                                    <p class="text-sm text-gray-500">Yakin ingin menghapus data?</p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 gap-3">
+                                                <x-primary-button>Hapus</x-primary-button>
+                                                <x-light-button
+                                                    x-on:click="$dispatch('close-modal', 'delete-data-{{ $info->id }}')">Batal</x-light-button>
+                                            </div>
+                                        </form>
+                                    </x-modal>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -50,28 +73,30 @@
     </div>
 
     <x-modal name="add-data">
-        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-            <div class="sm:flex sm:items-start">
-                <div
-                    class="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
-                    <svg class="size-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" data-slot="icon">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                    </svg>
-                </div>
-                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                    <h3 class="text-base font-semibold text-gray-900" id="modal-title">Deactivate account</h3>
-                    <div class="mt-2">
-                        <p class="text-sm text-gray-500">Are you sure you want to deactivate your account? All
-                            of your data will be permanently removed. This action cannot be undone.</p>
+        <form action="{{ route('information.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
+
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="flex flex-col gap-3">
+                    <h3 class="text-base font-semibold text-gray-900" id="modal-title">Tambah Informasi</h3>
+                    <div>
+                        <x-input-label for="title" value="Judul" />
+                        <x-text-input id="title" name="title" placeholder="Judul" class="w-full" />
+                    </div>
+                    <div>
+                        <x-input-label for="image" value="File Gambar" />
+                        <x-text-input id="image" name="image" type="file"
+                            class="file:border-0 file:rounded-sm file:mr-2 file:bg-gray-900 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-gray-100" />
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 gap-3">
-            <x-primary-button>Tambah</x-primary-button>
-            <x-light-button x-on:click="$dispatch('close-modal', 'add-data')">Batal</x-light-button>
-        </div>
+            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 gap-3">
+                <x-primary-button>Tambah</x-primary-button>
+                <x-light-button x-on:click="$dispatch('close-modal', 'add-data')">Batal</x-light-button>
+            </div>
+        </form>
     </x-modal>
+
+
 </x-auth-layout>
