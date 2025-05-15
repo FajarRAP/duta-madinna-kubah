@@ -38,11 +38,46 @@
                                         {{ $info->title }}
                                     </td>
                                     <td class="px-6 py-4 flex flex-col">
-                                        <a href="#" class="font-medium text-yellow-600 hover:underline" x-data
-                                            x-on:click.prevent="$dispatch('open-modal', 'edit-data')">Sunting</a>
-                                        <a href="#" class="font-medium text-red-600 hover:underline" x-data
-                                            x-on:click.prevent="$dispatch('open-modal', 'delete-data-{{ $info->id }}')">Hapus</a>
+                                        <p class="font-medium text-yellow-600 hover:underline cursor-pointer" x-data
+                                            x-on:click.prevent="$dispatch('open-modal', 'edit-data-{{ $info->id }}')">
+                                            Sunting</p>
+                                        <p class="font-medium text-red-600 hover:underline cursor-pointer" x-data
+                                            x-on:click.prevent="$dispatch('open-modal', 'delete-data-{{ $info->id }}')">
+                                            Hapus</p>
                                     </td>
+                                    <x-modal name="edit-data-{{ $info->id }}">
+                                        <form action="{{ route('information.update', $info) }}" method="POST"
+                                            enctype="multipart/form-data" class="block w-full max-w-4xl">
+                                            @csrf
+                                            @method('PUT')
+
+                                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                                <div class="flex flex-col gap-3">
+                                                    <h3 class="text-base font-semibold text-gray-900">
+                                                        Sunting Informasi
+                                                    </h3>
+                                                    <div>
+                                                        <x-input-label for="title" value="Judul" />
+                                                        <x-text-input id="title" name="title" placeholder="Judul"
+                                                            class="w-full" :value="$info->title" />
+                                                    </div>
+                                                    <div>
+                                                        <x-input-label for="image" value="File Gambar" />
+                                                        <img src="{{ asset("storage/$info->image_path") }}"
+                                                            alt="">
+                                                        <x-text-input id="image" name="image" type="file"
+                                                            class="mt-1 file:border-0 file:rounded-sm file:mr-2 file:bg-gray-900 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-gray-100" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="bg-gray-50 px-4 py-3 flex flex-col sm:flex sm:flex-row-reverse sm:px-6 gap-3">
+                                                <x-primary-button class="justify-center">Sunting</x-primary-button>
+                                                <x-light-button type="button" class="justify-center"
+                                                    x-on:click="$dispatch('close-modal', 'edit-data-{{ $info->id }}')">Batal</x-light-button>
+                                            </div>
+                                        </form>
+                                    </x-modal>
                                     <x-modal name="delete-data-{{ $info->id }}">
                                         <form action="{{ route('information.destroy', $info) }}" method="POST">
                                             @csrf
@@ -56,9 +91,10 @@
                                                     <p class="text-sm text-gray-500">Yakin ingin menghapus data?</p>
                                                 </div>
                                             </div>
+
                                             <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 gap-3">
                                                 <x-primary-button>Hapus</x-primary-button>
-                                                <x-light-button
+                                                <x-light-button type="button"
                                                     x-on:click="$dispatch('close-modal', 'delete-data-{{ $info->id }}')">Batal</x-light-button>
                                             </div>
                                         </form>
@@ -73,7 +109,8 @@
     </div>
 
     <x-modal name="add-data">
-        <form action="{{ route('information.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('information.store') }}" method="POST" enctype="multipart/form-data"
+            class="block w-full max-w-4xl">
             @csrf
             @method('POST')
 
@@ -91,12 +128,11 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 gap-3">
-                <x-primary-button>Tambah</x-primary-button>
-                <x-light-button x-on:click="$dispatch('close-modal', 'add-data')">Batal</x-light-button>
+            <div class="bg-gray-50 px-4 py-3 flex flex-col sm:flex sm:flex-row-reverse sm:px-6 gap-3">
+                <x-primary-button class="justify-center">Tambah</x-primary-button>
+                <x-light-button type="button" class="justify-center"
+                    x-on:click="$dispatch('close-modal', 'add-data')">Batal</x-light-button>
             </div>
         </form>
     </x-modal>
-
-
 </x-auth-layout>
