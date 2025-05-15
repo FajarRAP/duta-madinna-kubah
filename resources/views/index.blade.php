@@ -66,14 +66,17 @@
             <h3 class="text-3xl font-bold text-center mb-10">Informasi Terbaru</h3>
             <div class="grid md:grid-cols-3 gap-8">
                 @foreach ($information as $info)
-                    <div class="bg-white p-6 rounded-lg shadow text-center flex flex-col justify-between">
-                        <h4 class="text-xl font-bold mb-2">{{ $info->title }}</h4>
-                        <img src="{{ asset("storage/$info->image_path") }}" alt="">
+                    <div class="bg-white p-6 rounded-lg shadow text-center flex flex-col max-h-96">
+                        <h4 class="text-xl font-bold">{{ $info->title }}</h4>
+                        <x-modal :name="$info->id">
+                            <img src="{{ asset("storage/$info->image_path") }}" class="w-full block">
+                        </x-modal>
+                        <img src="{{ asset("storage/$info->image_path") }}" class="max-h-3/4 object-cover my-auto"
+                            x-data x-on:click="$dispatch('open-modal', '{{ $info->id }}')">
                     </div>
                 @endforeach
             </div>
         </div>
-
     </section>
 
     <!-- About -->
@@ -136,4 +139,15 @@
     <footer class="bg-white text-center py-6 border-t mt-10">
         <p>&copy; 2025 Duta Madinna Kubah. Hak cipta dilindungi undang-undang.</p>
     </footer>
+
+    <!-- Scroll to Top -->
+    <div id="scrollToTop"
+        class="fixed p-3 bg-blue-400 z-50 bottom-4 right-4 rounded-full shadow-lg cursor-pointer border-2 border-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-4 sm:size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"></path>
+        </svg>
+    </div>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 </x-app-layout>
