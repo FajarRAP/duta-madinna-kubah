@@ -14,6 +14,8 @@ Route::get('/dashboard/information', [InformationController::class, 'index'])
     ->middleware('auth')->name('information');
 Route::post('dashboard/information', [InformationController::class, 'store'])
     ->middleware('auth')->name('information.store');
+Route::put('/dashboard/information/{information}', [InformationController::class, 'update'])
+    ->middleware('auth')->name('information.update');
 Route::delete('dashboard/information/{information}', [InformationController::class, 'destroy'])
     ->middleware('auth')->name('information.destroy');
 Route::get('/dashboard/portfolio', fn() => view('portfolio'))
