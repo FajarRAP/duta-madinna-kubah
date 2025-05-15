@@ -30,6 +30,26 @@ class InformationController extends Controller
         return back()->with('success', 'Information created successfully.');
     }
 
+    public function update(Request $request, Information $information)
+    {
+        $validated = $request->validate([
+            'title' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            Storage::disk('public')->delete($information->image_path);
+            $validated['image_path'] = $request->file('image')->store('images', 'public');
+        }
+
+        $information->update([
+            'title' => $validated['title'],
+            'image_path' => $validated['image_path'] ?? $information->image_path,
+        ]);
+
+        return back()->with('success', 'Information updated successfully.');
+    }
+
     public function destroy(Information $information)
     {
         Storage::disk('public')->delete($information->image_path);
