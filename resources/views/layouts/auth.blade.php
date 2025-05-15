@@ -3,6 +3,11 @@
         <x-navbar class="border-b">
             <x-slot name="navlinks">
                 <li>
+                    <x-navbar.nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        Beranda
+                    </x-navbar.nav-link>
+                </li>
+                <li>
                     <x-navbar.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         Dashboard
                     </x-navbar.nav-link>
