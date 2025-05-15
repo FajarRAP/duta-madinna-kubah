@@ -3,7 +3,7 @@
 <nav {{ $attributes->class(['bg-white border-gray-200 shadow-md', 'fixed top-0 left-0 right-0 z-50' => $isFixed]) }}
     x-data="{ open: false }" x-on:click.away="open = false">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="" class="flex items-center space-x-3">
+        <a href="{{ route('dashboard') }}" class="flex items-center space-x-3">
             <img src="{{ Vite::image('logo.png') }}" class="h-8" alt="Duta Madinna Kubah Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap">Duta Madinna Kubah</span>
         </a>
