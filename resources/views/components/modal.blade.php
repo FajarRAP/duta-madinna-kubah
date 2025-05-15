@@ -33,9 +33,10 @@
         x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
         x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"></div>
 
-    <div class="fixed z-10 sm:start-1/2 sm:-translate-x-1/2 top-1/2 -translate-y-1/2 overflow-y-auto rounded-lg">
+    <div
+        class="fixed z-10 start-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 overflow-y-auto rounded-lg w-full max-w-sm sm:max-w-lg lg:max-w-xl xl:max-w-2xl">
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-lg"
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-full"
                 x-show="show" x-transition:enter="ease-out duration-300"
                 x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
