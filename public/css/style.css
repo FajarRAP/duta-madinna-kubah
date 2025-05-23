@@ -532,3 +532,50 @@ img.logo {
     width: 50px;
     height: 50px;
 }
+
+/*** Promo ***/
+.promo-carousel .owl-dots {
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.promo-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    background: #DDDDDD;
+    border-radius: 2px;
+    transition: .5s;
+}
+
+.promo-carousel .owl-dot.active {
+    width: 30px;
+    background: var(--primary);
+}
+
+.promo-carousel .owl-item.center {
+    position: relative;
+    z-index: 1;
+}
+
+.promo-carousel .owl-item .promo-item {
+    transition: .5s;
+    margin: 0 15px;
+}
+
+.promo-carousel .owl-item.center .promo-item {
+    box-shadow: 0 0 30px #DDDDDD;
+}
+
+.promo-carousel .promo-item .team-item .team-img {
+    height: 400px;
+}
+
+.promo-image {
+    object-fit: cover;
+    height: 100%;
+}
