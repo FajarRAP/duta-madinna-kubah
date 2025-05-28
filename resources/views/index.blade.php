@@ -80,10 +80,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="#header-carousel" class="nav-item nav-link active">Home</a>
-                    <a href="#about" class="nav-item nav-link">About</a>
-                    <a href="#services" class="nav-item nav-link">Services</a>
-                    <a href="#contact" class="nav-item nav-link">Contact</a>
+                    <a href="#home" class="nav-item nav-link">Beranda</a>
+                    <a href="#about" class="nav-item nav-link">Tentang</a>
+                    <a href="#feature" class="nav-item nav-link">Fitur</a>
+                    <a href="#service" class="nav-item nav-link">Layanan</a>
+                    <a href="#contact" class="nav-item nav-link">Kontak</a>
+                    <a href="#portfolio" class="nav-item nav-link">Portofolio</a>
+                    <a href="#promotion" class="nav-item nav-link">Promosi</a>
                 </div>
                 @auth
                     <a href="{{ route('dashboard') }}" class="btn btn-primary py-2 px-4 ms-3">Dashboard</a>
@@ -93,7 +96,7 @@
             </div>
         </nav>
 
-        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <section id="home" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <x-carousel-header-item :src="Vite::image('carousel-header-item-1.jpg')" title="Kualitas Terbaik Dengan Harga Bersaing"
                     class="active" />
@@ -105,11 +108,12 @@
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>
+        </section>
     </div>
     <!-- Navbar & Carousel End -->
 
@@ -164,7 +168,7 @@
 
 
     <!-- About Start -->
-    <div id="about" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <section id="about" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-7">
@@ -203,17 +207,17 @@
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
                         <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s"
-                            src="img/about.jpg" style="object-fit: cover;">
+                            src="{{ Vite::image('about-us.jpg') }}" style="object-fit: cover;">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- About End -->
 
 
     <!-- Features Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <section id="feature" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
                 <h5 class="fw-bold text-primary text-uppercase">Kenapa Harus Memilih Kami</h5>
@@ -222,34 +226,35 @@
             <div class="row g-5">
                 <div class="col-lg-4">
                     <div class="row g-5">
-                        <x-feature-item icon="fa-cubes" title="Terbaik di Industri"
-                            description="Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor" />
-                        <x-feature-item icon="fa-award" title="Pemenang Penghargaan"
-                            description="Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor" />
+                        <x-feature-item icon="fa-mosque" title="Masjid Simbol Peradaban"
+                            description="Tujuan kami, menjadi mitra yang jujur dan amanah untuk menjadikan masjid yang mencerminkan kebesaran peradaban Islam, sehingga akan menjadi kebanggaan setiap umat Islam di sekitar masjid khususnya maupun secara keseluruhan pada umumnya." />
+
+                        <x-feature-item icon="fa-trophy" title="Diakui dalam Kualitas dan Dedikasi"
+                            description="Prestasi kami bukan hanya dalam membangun, tetapi juga diakui melalui penghargaan dan kepercayaan pelanggan atas kualitas dan integritas yang kami jaga." />
                     </div>
                 </div>
                 <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
                     <div class="position-relative h-100">
                         <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s"
-                            src="img/feature.jpg" style="object-fit: cover;">
+                            src="{{ Vite::image('feature.jpg') }}" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="row g-5">
-                        <x-feature-item icon="fa-users-cog" title="Tim Professional"
-                            description="Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor" />
-                        <x-feature-item icon="fa-phone-alt" title="Layanan 24/7"
-                            description="Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor" />
+                        <x-feature-item icon="fa-tools" title="Lebih Dari Sekedar Membangun"
+                            description="Kami adalah tim Duta Madinna, yang profesional dan berpengalaman di bidang jasa konstruksi kubah masjid. Suatu kehormatan bagi kami dapat menjadi mitra Anda dan bangga ikut berpartisipasi mewujudkan kubah masjid impian Anda." />
+                        <x-feature-item icon="fa-smile" title="Kepuasan Anda, Tujuan Kami"
+                            description="Kami membantu Anda membangun kubah masjid yang Anda inginkan. Selama proses pembangunan, kami bekerjasama dengan Anda untuk memastikan Anda benar-benar puas sesuai harapan yang Anda inginkan." />
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Features Start -->
 
 
     <!-- Service Start -->
-    <div id="services" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <section id="service" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
                 <h5 class="fw-bold text-primary text-uppercase">Layanan Kami</h5>
@@ -281,12 +286,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Service End -->
 
 
     <!-- Quote Start -->
-    <div id="contact" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <section id="contact" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-7">
@@ -308,10 +313,10 @@
                             </h5>
                         </div>
                     </div>
-                    <p class="mb-4">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea
-                        et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero
-                        ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore
-                        sanctus sed et. Takimata takimata sanctus sed.</p>
+                    <p class="mb-4">Duta Madinna siap membantu Anda mewujudkan kubah masjid impian dengan harga
+                        terbaik dan layanan terpercaya. Konsultasikan kebutuhan Anda sekarang juga, dan dapatkan
+                        penawaran yang sesuai dengan keinginan dan anggaran Anda. Hubungi kami, dan kami akan segera
+                        merespons dalam waktu kurang dari 24 jam!</p>
                     <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
                         <div class="bg-primary d-flex align-items-center justify-content-center rounded"
                             style="width: 60px; height: 60px;">
@@ -354,16 +359,16 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Quote End -->
 
 
-    <!-- Testimonial Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <!-- Portofolio Start -->
+    <section id="portfolio" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Testimonial</h5>
-                <h1 class="mb-0">What Our Clients Say About Our Digital Services</h1>
+                <h5 class="fw-bold text-primary text-uppercase">Portofolio</h5>
+                <h1 class="mb-0">Beberapa Jejak Karya dan Inovasi Kami</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.6s">
                 @for ($i = 0; $i < 3; $i++)
@@ -426,13 +431,12 @@
                 @endfor
             </div>
         </div>
-    </div>
-    <!-- Testimonial End -->
+    </section>
+    <!-- Portofolio End -->
 
 
-    <!-- Team Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-
+    <!-- Promotion Start -->
+    <section id="promotion" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
                 <h5 class="fw-bold text-primary text-uppercase">Promo Hari Ini</h5>
@@ -444,8 +448,8 @@
                 @endforeach
             </div>
         </div>
-    </div>
-    <!-- Team End -->
+    </section>
+    <!-- Promotion End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -475,11 +479,11 @@
                                 class="fab fa-instagram fw-normal"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                <div class="col col-lg-4 col-md-12 py-5">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.636315152208!2d111.69685739113497!3d-8.138456270984573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7919887ace7a19%3A0xef6251c0f36397aa!2sPT.%20Duta%20Madinna%20Kubah%20Trenggalek!5e0!3m2!1sen!2sid!4v1748014481349!5m2!1sen!2sid"
-                        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="location-maps"></iframe>
                 </div>
             </div>
         </div>
@@ -505,8 +509,7 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i
-            class="bi bi-arrow-up"></i></a>
+    <button class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></button>
 
 
     <!-- JavaScript Libraries -->
