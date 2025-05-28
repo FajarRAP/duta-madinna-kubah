@@ -15,8 +15,6 @@
     },
     "dependencies": {
         "@alpinejs/collapse": "^3.14.9",
-        "alpinejs": "^3.14.9",
-        "jquery": "^3.7.1",
-        "slick-carousel": "^1.8.1"
+        "alpinejs": "^3.14.9"
     }
 }
