@@ -562,20 +562,62 @@ img.logo {
     z-index: 1;
 }
 
-.promo-carousel .owl-item .promo-item {
+.promo-carousel .owl-item .data-card-item {
     transition: .5s;
     margin: 0 15px;
 }
 
-.promo-carousel .owl-item.center .promo-item {
+.promo-carousel .owl-item.center .data-card-item {
     box-shadow: 0 0 30px #DDDDDD;
 }
 
-.promo-carousel .promo-item .team-item .team-img {
+.promo-carousel .data-card-item .team-item .team-img {
     height: 400px;
 }
 
-.promo-image {
+/*** Promo ***/
+.portfolio-carousel .owl-dots {
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.portfolio-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    background: #DDDDDD;
+    border-radius: 2px;
+    transition: .5s;
+}
+
+.portfolio-carousel .owl-dot.active {
+    width: 30px;
+    background: var(--primary);
+}
+
+.portfolio-carousel .owl-item.center {
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-carousel .owl-item .data-card-item {
+    transition: .5s;
+    margin: 0 15px;
+}
+
+.portfolio-carousel .owl-item.center .data-card-item {
+    box-shadow: 0 0 30px #DDDDDD;
+}
+
+.portfolio-carousel .data-card-item .team-item .team-img {
+    height: 400px;
+}
+
+.data-card-image {
     object-fit: cover;
     height: 100%;
 }

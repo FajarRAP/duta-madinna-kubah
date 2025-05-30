@@ -92,6 +92,29 @@
         },
     });
 
+    $(".portfolio-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 1500,
+        dots: true,
+        loop: true,
+        center: true,
+        margin: 30,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            576: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 3,
+            },
+        },
+    });
+
     $(".promo-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 1500,
