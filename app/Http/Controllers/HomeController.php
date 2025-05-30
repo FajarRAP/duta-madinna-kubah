@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Information;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,6 +15,7 @@ class HomeController extends Controller
     {
         return view('index', [
             'informations' => Information::all(),
+            'portfolios' => Portfolio::all(),
         ]);
     }
 }
