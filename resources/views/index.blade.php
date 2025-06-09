@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
@@ -69,11 +69,11 @@
 
 
     <!-- Navbar & Carousel Start -->
-    <div class="container-fluid position-relative p-0">
+    <header class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-2 px-sm-5 py-3 py-lg-0">
             <a href="#" class="navbar-brand p-0 d-flex align-items-center gap-3">
                 <img src="{{ Vite::image('logo.png') }}" class="logo d-none d-sm-block">
-                <h1 class="m-0">Duta Madinna Kubah</h1>
+                <h1 class="m-0 fs-3">Duta Madinna Kubah</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -114,7 +114,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </section>
-    </div>
+    </header>
     <!-- Navbar & Carousel End -->
 
 
