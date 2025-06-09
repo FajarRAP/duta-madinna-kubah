@@ -91,6 +91,7 @@
                     <a href="#about" class="nav-item nav-link">Tentang</a>
                     <a href="#feature" class="nav-item nav-link">Fitur</a>
                     <a href="#service" class="nav-item nav-link">Layanan</a>
+                    <a href="#dome-design" class="nav-item nav-link">Desain Kubah</a>
                     <a href="#contact" class="nav-item nav-link">Kontak</a>
                     <a href="#portfolio" class="nav-item nav-link">Portofolio</a>
                 </div>
@@ -284,19 +285,16 @@
             <div class="row g-5">
                 <x-service-item title="Kubah Masjid Enamel"
                     description="Material pelapis pada metal yang sudah lama dikenal terutama pada alat-alat rumah tangga."
-                    wow-delay="0.3s" />
+                    wow-delay="0.3s" data-bs-toggle="modal" data-bs-target="#modal-enamel" />
                 <x-service-item title="Kubah Masjid Alumunium"
                     description="Kubah masjid dengan sistem panel yang berbahan dasar plat aluminium dengan ketebalan bervariasi."
-                    wow-delay="0.6s" />
+                    wow-delay="0.6s" data-bs-toggle="modal" data-bs-target="#modal-alumunium" />
                 <x-service-item title="Kubah Masjid Galvalum"
                     description="Material baja dengan pelapisan yang mengandung unsur alumunium dan zinc"
-                    wow-delay="0.9s" />
-                <x-service-item title="Ornamen Kubah"
-                    description="Perindah sisi dalam kubah masjid demgam pembuatan ornamen kubah kaligrafi secara permanen."
-                    wow-delay="0.3s" />
-                <x-service-item title="Dekorasi Plafon Kubah Masjid"
-                    description="Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed"
-                    wow-delay="0.6s" />
+                    wow-delay="0.9s" data-bs-toggle="modal" data-bs-target="#modal-galvalum" />
+                <x-service-item title="Kubah Masjid Stainless Gold"
+                    description="Material stainless steel berlapis emas yang kuat dan tampil mewah." wow-delay="0.3s"
+                    data-bs-toggle="modal" data-bs-target="#modal-stainless-gold" />
                 <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
                     <div
                         class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
@@ -309,6 +307,40 @@
         </div>
     </section>
     <!-- Service End -->
+
+
+    <!-- Dome Design Start -->
+    <section id="dome-design" class="py-5 bg-light">
+        <div class="container">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;"
+                data-wow-delay="0.1s">
+                <h5 class="fw-bold text-primary text-uppercase">Desain Kubah Masjid Kami</h5>
+                <h1 class="mb-0">Desain Kubah Tterbaik Untuk Berbagai Proyek Masjid</h1>
+            </div>
+            <div class="row g-4">
+                <x-dome-design-card
+                    description="Desain klasik yang sering digunakan pada masjid-masjid tradisional. Memiliki bentuk setengah bola yang simetris dan elegan."
+                    image="half-circle-type.png" wow-delay="0.3s" />
+                <x-dome-design-card
+                    description="Terinspirasi dari bentuk payung yang terbuka, kubah ini memberikan kesan ringan namun tetap megah pada tampilan masjid."
+                    image="umbrella-type.png" wow-delay="0.6s" />
+                <x-dome-design-card
+                    description="Memiliki motif dan bentuk menyerupai buah nanas, cocok untuk masjid dengan nuansa dekoratif dan unik."
+                    image="pineapple-type.png" wow-delay="0.9s" />
+                <x-dome-design-card
+                    description="Mengadaptasi desain dari Masjid Nabawi, kubah ini memberikan kesan Islami yang kuat dan elegan."
+                    image="madinna-type.png" wow-delay="0.3s" />
+                <x-dome-design-card
+                    description="Bentuk khas yang menyerupai bawang, banyak digunakan pada arsitektur Timur Tengah dan Asia Selatan."
+                    image="onion-type.png" wow-delay="0.6s" />
+            </div>
+            <div class="text-center mt-5">
+                <a href="https://wa.me/6285236738187" target="_blank"
+                    class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+    <!-- Dome Design End -->
 
 
     <!-- Quote Start -->
@@ -461,6 +493,18 @@
     <!-- Back to Top -->
     <button class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></button>
 
+    <x-material-modal id="modal-enamel" title="Kubah Masjid Enamel" image="enamel.png"
+        description="Bahan terbuat dari plat steel low carbon (standar enamel), finishing enamel coating PT. Maspion tebal 1 - 1,2 mm. Garansi warna resmi dari PT. Maspion."
+        :benefits="['Tahan Panas', 'Tahan Karat', 'Warna lebih tahan lama (>20 tahun)']" />
+    <x-material-modal id="modal-alumunium" title="Kubah Masjid Alumunium" image="alumunium.png"
+        description="Dari bahan Plat Alumunium 0,8 mm, dengan pengecatan menggunakan system powder coating."
+        :benefits="['Tahan Panas', 'Tahan Karat', 'Warna Awet', 'Mudah dibersihkan']" />
+    <x-material-modal id="modal-galvalum" title="Kubah Masjid Galvalum" image="galvalum.png"
+        description="Plat Galvalium tebal 0,45mm, dengan pengecatan menggunakan system powder coating khusus aplikasi untuk eksterior."
+        :benefits="['Tahan Panas', 'Tahan Karat', 'Warna Awet', 'Mudah dibersihkan (Selfwashing) oleh air hujan saja']" />
+    <x-material-modal id="modal-stainless-gold" title="Kubah Masjid Stainless Gold" image="stainless-gold.png"
+        description="Bahan stainless dengan kilauan warna emas memberikan kesan modern dan mewah. Lebih efisien karena tidak memerlukan proses pengecatan."
+        :benefits="['Bahan Ringan', 'Lentur dan Kuat', 'Tahan korosi', 'Warna tidak mudah pudar']" />
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
