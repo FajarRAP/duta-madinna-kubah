@@ -310,12 +310,11 @@
 
 
     <!-- Dome Design Start -->
-    <section id="dome-design" class="py-5 bg-light">
+    <section id="dome-design" class="py-5 bg-light wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;"
-                data-wow-delay="0.1s">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
                 <h5 class="fw-bold text-primary text-uppercase">Desain Kubah Masjid Kami</h5>
-                <h1 class="mb-0">Desain Kubah Tterbaik Untuk Berbagai Proyek Masjid</h1>
+                <h1 class="mb-0">Desain Kubah Terbaik Untuk Berbagai Proyek Masjid</h1>
             </div>
             <div class="row g-4">
                 <x-dome-design-card
