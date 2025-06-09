@@ -19,11 +19,13 @@ class PortfolioController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
+            'description' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         Portfolio::create([
             'title' => $validated['title'],
+            'description' => $validated['description'],
             'image_path' => $request->file('image')->store('images', 'public'),
         ]);
 
@@ -35,6 +37,7 @@ class PortfolioController extends Controller
         $validated = $request->validate([
             'title' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'nullable',
         ]);
 
         if ($request->hasFile('image')) {
@@ -45,6 +48,7 @@ class PortfolioController extends Controller
         $portfolio->update([
             'title' => $validated['title'],
             'image_path' => $validated['image_path'] ?? $portfolio->image_path,
+            'description' => $validated['description'],
         ]);
 
         return back()->with('success', 'Information updated successfully.');

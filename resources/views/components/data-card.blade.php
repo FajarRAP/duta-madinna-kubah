@@ -7,6 +7,9 @@
         </div>
         <div class="text-center py-4">
             <h4 class="text-primary">{{ $model->title }}</h4>
+            @if ($model?->description)
+                <p class="mb-0 text-muted small">{{ $model?->description }}</p>
+            @endif
         </div>
     </div>
 </div>

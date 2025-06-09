@@ -22,6 +22,9 @@
                                     Judul
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Deskripsi
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Aksi
                                 </th>
                             </tr>
@@ -30,12 +33,14 @@
                             @foreach ($portfolios as $portfolio)
                                 <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
                                     <td class="p-4">
-
                                         <img src='{{ asset("storage/$portfolio->image_path") }}'
                                             class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
                                     </td>
                                     <td class="px-6 py-4 font-semibold text-gray-900">
                                         {{ $portfolio->title }}
+                                    </td>
+                                    <td class="px-6 py-4 font-semibold text-gray-900">
+                                        {{ $portfolio->description }}
                                     </td>
                                     <td class="px-6 py-4 flex flex-col">
                                         <p class="font-medium text-yellow-600 hover:underline cursor-pointer" x-data
@@ -62,9 +67,15 @@
                                                             class="w-full" :value="$portfolio->title" />
                                                     </div>
                                                     <div>
+                                                        <x-input-label for="description" value="Description" />
+                                                        <x-text-input id="description" name="description"
+                                                            placeholder="Description" class="w-full"
+                                                            :value="$portfolio->description" />
+                                                    </div>
+                                                    <div>
                                                         <x-input-label for="image" value="File Gambar" />
                                                         <img src="{{ asset("storage/$portfolio->image_path") }}"
-                                                            alt="">
+                                                            style="max-width: 200px;">
                                                         <x-text-input id="image" name="image" type="file"
                                                             class="mt-1 file:border-0 file:rounded-sm file:mr-2 file:bg-gray-900 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-gray-100" />
                                                     </div>
@@ -120,6 +131,10 @@
                     <div>
                         <x-input-label for="title" value="Judul" />
                         <x-text-input id="title" name="title" placeholder="Judul" class="w-full" />
+                    </div>
+                    <div>
+                        <x-input-label for="description" value="Deskripsi" />
+                        <x-text-input id="description" name="description" placeholder="Deskripsi" class="w-full" />
                     </div>
                     <div>
                         <x-input-label for="image" value="File Gambar" />
