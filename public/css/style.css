@@ -17,7 +17,7 @@
     animation: sk-rotateplane 1.2s infinite ease-in-out;
 }
 
-@-webkit-keyframes sk-rotateplane {
+@keyframes sk-rotateplane {
     0% {
         -webkit-transform: perspective(120px)
     }
@@ -132,9 +132,9 @@ h6,
     font-family: 'Inter', sans-serif;
     position: relative;
     margin-left: 25px;
-    padding: 35px 0;
+    padding: 28px 0;
     color: #FFFFFF;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     outline: none;
     transition: .5s;
@@ -151,7 +151,7 @@ h6,
 }
 
 .navbar-dark .navbar-brand h1 {
-    font-size: 36px;
+    font-size: 30px;
     color: #FFFFFF;
 }
 
@@ -314,7 +314,7 @@ h6,
     animation: section-title-run-sm 5s infinite linear;
 }
 
-@-webkit-keyframes section-title-run {
+@keyframes section-title-run {
     0% {
         left: 0;
     }
@@ -328,7 +328,7 @@ h6,
     }
 }
 
-@-webkit-keyframes section-title-run-center {
+@keyframes section-title-run-center {
     0% {
         left: 50%;
         margin-left: -75px;
@@ -345,7 +345,7 @@ h6,
     }
 }
 
-@-webkit-keyframes section-title-run-sm {
+@keyframes section-title-run-sm {
     0% {
         left: 0;
     }
@@ -384,7 +384,7 @@ h6,
     transform: rotate(45deg);
 }
 
-.service-item a.btn {
+.service-item button.btn {
     position: absolute;
     width: 60px;
     bottom: -48px;
@@ -393,7 +393,7 @@ h6,
     opacity: 0;
 }
 
-.service-item:hover a.btn {
+.service-item:hover button.btn {
     bottom: -24px;
     opacity: 1;
 }
