@@ -84,7 +84,7 @@ h6,
 
 /*** Button ***/
 .btn {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
     transition: .5s;
 }
@@ -129,7 +129,7 @@ h6,
 
 /*** Navbar ***/
 .navbar-dark .navbar-nav .nav-link {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Inter', sans-serif;
     position: relative;
     margin-left: 25px;
     padding: 35px 0;
@@ -151,6 +151,7 @@ h6,
 }
 
 .navbar-dark .navbar-brand h1 {
+    font-size: 36px;
     color: #FFFFFF;
 }
 
@@ -159,7 +160,20 @@ h6,
     border-color: var(--primary) !important;
 }
 
-@media (max-width: 991.98px) {
+@media screen and (max-width: 576px) {
+    .navbar-dark .navbar-brand h1 {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .navbar-dark .navbar-brand h1 {
+        font-size: 24px;
+    }
+}
+
+
+@media (max-width: 1199.98px) {
     .sticky-top.navbar-dark {
         position: relative;
         background: #FFFFFF;
@@ -177,7 +191,7 @@ h6,
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
     .navbar-dark {
         position: absolute;
         width: 100%;
@@ -229,14 +243,13 @@ h6,
     z-index: 1;
 }
 
-@media (max-width: 576px) {
-    .carousel-caption h5 {
-        font-size: 14px;
-        font-weight: 500 !important;
-    }
+.carousel-caption h1 {
+    font-size: 32px;
+}
 
+@media (max-width: 576px) {
     .carousel-caption h1 {
-        font-size: 30px;
+        font-size: 16px;
         font-weight: 600 !important;
     }
 }
