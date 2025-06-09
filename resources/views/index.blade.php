@@ -78,7 +78,7 @@
     <header class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-xl navbar-dark px-2 px-sm-5 py-3 py-xl-0">
             <a href="#" class="navbar-brand p-0 d-flex align-items-center gap-3">
-                <img src="{{ Vite::image('logo.png') }}" class="logo d-none d-sm-block">
+                <img src="{{ Vite::image('logo.png') }}" class="logo">
                 <h1 class="m-0">Duta Madinna Kubah</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -87,12 +87,12 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="#home" class="nav-item nav-link">Beranda</a>
+                    <a href="#promotion" class="nav-item nav-link">Promosi</a>
                     <a href="#about" class="nav-item nav-link">Tentang</a>
                     <a href="#feature" class="nav-item nav-link">Fitur</a>
                     <a href="#service" class="nav-item nav-link">Layanan</a>
                     <a href="#contact" class="nav-item nav-link">Kontak</a>
                     <a href="#portfolio" class="nav-item nav-link">Portofolio</a>
-                    <a href="#promotion" class="nav-item nav-link">Promosi</a>
                 </div>
                 @auth
                     <a href="{{ route('dashboard') }}" class="btn btn-primary py-2 px-4 ms-3">Dashboard</a>
@@ -171,6 +171,22 @@
     </div>
     <!-- Facts Start -->
 
+
+    <!-- Promotion Start -->
+    <section id="promotion" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Promo Hari Ini</h5>
+                <h1 class="mb-0">Jangan Ketinggalan Dengan Promo Terbaru Dari Kami</h1>
+            </div>
+            <div class="owl-carousel promo-carousel wow fadeInUp" data-wow-delay="0.6s">
+                @foreach ($informations as $information)
+                    <x-data-card :model="$information" />
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- Promotion End -->
 
     <!-- About Start -->
     <section id="about" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -267,13 +283,13 @@
             </div>
             <div class="row g-5">
                 <x-service-item title="Kubah Masjid Enamel"
-                    description="Enamel adalah material pelapis pada metal yang sudah lama dikenal terutama pada alat-alat rumah tangga"
+                    description="Material pelapis pada metal yang sudah lama dikenal terutama pada alat-alat rumah tangga."
                     wow-delay="0.3s" />
                 <x-service-item title="Kubah Masjid Alumunium"
-                    description="Kubah Masjid Aluminium adalah kubah masjid dengan system panel yang berbahan dasar plat aluminium dengan ketebalan bervariasi dan dapat diwarnai dengan bermacam-macam warna"
+                    description="Kubah masjid dengan sistem panel yang berbahan dasar plat aluminium dengan ketebalan bervariasi."
                     wow-delay="0.6s" />
                 <x-service-item title="Kubah Masjid Galvalum"
-                    description="Galvalum atau Zincalum adalah merupakan material baja dengan pelapisan yang mengandung unsur alumunium dan zinc, dengan komposisi aluminium 55%, unsur zinc 43.5% dan unsur silikon 1.5%."
+                    description="Material baja dengan pelapisan yang mengandung unsur alumunium dan zinc"
                     wow-delay="0.9s" />
                 <x-service-item title="Ornamen Kubah"
                     description="Perindah sisi dalam kubah masjid demgam pembuatan ornamen kubah kaligrafi secara permanen."
@@ -286,7 +302,7 @@
                         class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
                         <h3 class="text-white mb-3">Segera Hubungi Kami</h3>
                         <p class="text-white mb-3">Dapatkan konsultasi sepuasnya gratis</p>
-                        <h2 class="text-white mb-0">0852 3673 8187</h2>
+                        <h4 class="text-white mb-0">0852 3673 8187</h4>
                     </div>
                 </div>
             </div>
@@ -299,7 +315,7 @@
     <section id="contact" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
-                <div class="col-lg-7">
+                <div class="col-lg-8">
                     <div class="section-title position-relative pb-3 mb-5">
                         <h5 class="fw-bold text-primary text-uppercase">Informasi Harga</h5>
                         <h1 class="mb-0">Silakan Hubungi Kami Untuk Menanyakan Harga Persisnya</h1>
@@ -308,7 +324,7 @@
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
                             <h5 class="mb-4">
                                 <i class="fa fa-reply text-primary me-3"></i>
-                                Pasti dibalas dalam 1x24 jam
+                                Dibalas dalam 1x24 jam
                             </h5>
                         </div>
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
@@ -333,27 +349,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn"
+                <div class="col-lg-4">
+                    <div class="bg-primary rounded h-100 d-flex align-items-center p-5 p-lg-3 wow zoomIn"
                         data-wow-delay="0.9s">
-                        <form>
+                        <form id="quoteForm">
                             <div class="row g-3">
                                 <div class="col-xl-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Nama"
-                                        style="height: 55px;">
+                                    <input id="nameField" type="text" class="form-control bg-light border-0"
+                                        placeholder="Nama" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <select class="form-select bg-light border-0" style="height: 55px;">
+                                    <select id="serviceField" class="form-select bg-light border-0"
+                                        style="height: 55px;">
                                         <option selected>Pilih Layanan</option>
-                                        <option value="1">Kubah Masjid Enamel</option>
-                                        <option value="2">Kubah Masjid Aluminium</option>
-                                        <option value="3">Kubah Masjid Galvalum</option>
-                                        <option value="4">Ornamen Kubah</option>
-                                        <option value="5">Dekorasi Plafon Kubah Masjid</option>
+                                        <option value="Kubah Masjid Enamel">Kubah Masjid Enamel</option>
+                                        <option value="Kubah Masjid Alumunium">Kubah Masjid Aluminium</option>
+                                        <option value="Kubah Masjid Galvalum">Kubah Masjid Galvalum</option>
+                                        <option value="Ornamen Kubah">Ornamen Kubah</option>
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control bg-light border-0" rows="3" placeholder="Pesan"></textarea>
+                                    <textarea id="messageField" class="form-control bg-light border-0" rows="3" placeholder="Pesan"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-dark w-100 py-3" type="submit">Kirim Pesan</button>
@@ -384,22 +400,6 @@
     </section>
     <!-- Portofolio End -->
 
-
-    <!-- Promotion Start -->
-    <section id="promotion" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Promo Hari Ini</h5>
-                <h1 class="mb-0">Jangan Ketinggalan Dengan Promo Terbaru Dari Kami</h1>
-            </div>
-            <div class="owl-carousel promo-carousel wow fadeInUp" data-wow-delay="0.6s">
-                @foreach ($informations as $information)
-                    <x-data-card :model="$information" />
-                @endforeach
-            </div>
-        </div>
-    </section>
-    <!-- Promotion End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">

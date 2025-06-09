@@ -42,10 +42,22 @@
         $("html, body").animate({ scrollTop: 0 });
     });
 
+    $("#quoteForm").on("submit", function (event) {
+        event.preventDefault();
+
+        const name = $("#nameField").val().trim();
+        const service = $("#serviceField").val().trim();
+        const message = $("#messageField").val().trim();
+        const text = `Halo nama saya ${name}, saya ingin bertanya tentang ${service}. ${message}`;
+        window.open(
+            `https://wa.me/6285316979307?&text=${encodeURIComponent(text)}`,
+            "_blank"
+        );
+    });
+
     // Auto active nav link
     const sections = $("section");
     const navlinks = $("nav div div a");
-    console.log(navlinks);
 
     $(window).on("scroll", function () {
         let currentSection = "home";
