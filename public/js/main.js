@@ -50,7 +50,7 @@
         const message = $("#messageField").val().trim();
         const text = `Halo nama saya ${name}, saya ingin bertanya tentang ${service}. ${message}`;
         window.open(
-            `https://wa.me/6285316979307?&text=${encodeURIComponent(text)}`,
+            `https://wa.me/6285236738187?&text=${encodeURIComponent(text)}`,
             "_blank"
         );
     });
