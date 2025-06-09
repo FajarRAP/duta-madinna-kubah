@@ -7,8 +7,8 @@
         </div>
         <h4 class="mb-3">{{ $title }}</h4>
         <p class="m-0">{{ $description }}</p>
-        <a class="btn btn-lg btn-primary rounded" href="">
+        <button class="btn btn-lg btn-primary rounded" {{ $attributes }}>
             <i class="bi bi-arrow-right"></i>
-        </a>
+        </button>
     </div>
 </div>
